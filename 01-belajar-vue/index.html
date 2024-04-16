@@ -7,37 +7,26 @@
   </head>
   <body>
     <div id="app">
-      <span v-if="tampil">
-        {{ message }}
-      </span>
-      <span v-else="!tampil">
-        message tidak ditampilkan
-      </span>
-
-      <div v-if="nilai > 8">
-        predikat A
+      <div v-show="stateLampu">
+        lampu hidup
       </div>
-      <div v-else-if="nilai < 8 && nilai > 6">
-        predikat B
-      </div>
-      <div v-else>
-        predikat C
-      </div>
+      <button @click="toggleLampu()">{{!stateLampu ? 'On' : 'Off'}}</button>
     </div>
     <script type="module">
       import { createApp, ref } from 'https://unpkg.com/vue@3/dist/vue.esm-browser.js'
 
       createApp ({
         setup() {
-          const message = ref('Hello World!')
-          const tampil = ref(true)
-          const nilai = ref(2)
+          const stateLampu = ref(true)
           return {
-            message,
-            tampil,
-            nilai
+            stateLampu,
           }
         },
+        methods: {
+          toggleLampu() {
+            this.stateLampu =!this.stateLampu
+          }
+        }
       }).mount('#app')
     </script>
   </body>
