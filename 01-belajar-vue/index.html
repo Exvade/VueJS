@@ -7,9 +7,15 @@
   </head>
   <body>
     <div id="app">
-      <button @click="kurang()">-</button>
-      {{ count }}
-      <button @click="tambah()">+</button>
+      <div>
+        {{ count }}
+      </div>
+      <div>
+        {{ message }}
+      </div>
+      <div v-text="message"></div>
+      <div v-text="message2">ini adalah random text</div>
+      <div v-html="message3"></div>
     </div>
     <script type="module">
       import { createApp, ref } from 'https://unpkg.com/vue@3/dist/vue.esm-browser.js'
@@ -17,8 +23,14 @@
       createApp ({
         setup() {
           const count = ref(0)
+          const message = ref('Hello world')
+          const message2 = ref('ini akan menimpa text yang ada di dalam tag html')
+          const message3 = ref('<strong>ini tulisan bold</strong>')
           return {
-            count
+            count,
+            message,
+            message2,
+            message3
           }
         },
         methods: {
