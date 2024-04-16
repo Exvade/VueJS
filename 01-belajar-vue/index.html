@@ -7,40 +7,37 @@
   </head>
   <body>
     <div id="app">
-      <div>
-        {{ count }}
-      </div>
-      <div>
+      <span v-if="tampil">
         {{ message }}
+      </span>
+      <span v-else="!tampil">
+        message tidak ditampilkan
+      </span>
+
+      <div v-if="nilai > 8">
+        predikat A
       </div>
-      <div v-text="message"></div>
-      <div v-text="message2">ini adalah random text</div>
-      <div v-html="message3"></div>
+      <div v-else-if="nilai < 8 && nilai > 6">
+        predikat B
+      </div>
+      <div v-else>
+        predikat C
+      </div>
     </div>
     <script type="module">
       import { createApp, ref } from 'https://unpkg.com/vue@3/dist/vue.esm-browser.js'
 
       createApp ({
         setup() {
-          const count = ref(0)
-          const message = ref('Hello world')
-          const message2 = ref('ini akan menimpa text yang ada di dalam tag html')
-          const message3 = ref('<strong>ini tulisan bold</strong>')
+          const message = ref('Hello World!')
+          const tampil = ref(true)
+          const nilai = ref(2)
           return {
-            count,
             message,
-            message2,
-            message3
+            tampil,
+            nilai
           }
         },
-        methods: {
-          tambah(){
-            this.count++
-          },
-          kurang(){
-            this.count--
-          },
-        }
       }).mount('#app')
     </script>
   </body>
