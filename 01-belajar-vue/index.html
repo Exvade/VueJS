@@ -7,9 +7,11 @@
   </head>
   <body>
     <div id="app">
-      <button v-on:click="count--">-</button>
+      <button @click="count--">-</button>
       <span>{{count}}</span>
-      <button v-on:click="count++">+</button>
+      <button @click="count++">+</button>
+
+      <button @click="sayHello('Deft')">sayHello</button>
     </div>
     <script type="module">
       import { createApp, ref } from 'https://unpkg.com/vue@3/dist/vue.esm-browser.js'
@@ -22,8 +24,8 @@
           }
         },
         methods: {
-          hapus(index){
-            this.fruits.splice(index, 1)
+          sayHello(props){
+            alert(`Hello ${props}`)
           }
         }
       }).mount('#app')
