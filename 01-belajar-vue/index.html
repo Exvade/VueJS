@@ -14,6 +14,11 @@
       <button @click="sayHello('Deft')">sayHello</button>
       <br>
       <input type="text" @keydown.enter="sayHello('Deft')">
+      <br>
+      <form action="asd.html" method="post" @submit.prevent>
+        <input type="text">
+        <input type="submit" value="send">
+      </form>
     </div>
     <script type="module">
       import { createApp, ref } from 'https://unpkg.com/vue@3/dist/vue.esm-browser.js'
