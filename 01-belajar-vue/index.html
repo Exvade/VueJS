@@ -7,27 +7,16 @@
   </head>
   <body>
     <div id="app">
-      <button @click="count--">-</button>
-      <span>{{count}}</span>
-      <button @click="count++">+</button>
-      <br>
-      <button @click="sayHello('Deft')">sayHello</button>
-      <br>
-      <input type="text" @keydown.enter="sayHello('Deft')">
-      <br>
-      <form action="asd.html" method="post" @submit.prevent>
-        <input type="text">
-        <input type="submit" value="send">
-      </form>
+      <a :href="url">google</a>
     </div>
     <script type="module">
       import { createApp, ref } from 'https://unpkg.com/vue@3/dist/vue.esm-browser.js'
 
       createApp ({
         setup() {
-          const count = ref(0);
+          const url = ref("https://google.com");
           return {
-            count,
+            url,
           }
         },
         methods: {
