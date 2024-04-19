@@ -7,30 +7,18 @@
   </head>
   <body>
     <div id="app">
-      <ul v-for="(i, index) in fruits">
-        <li>{{i}} {{index}} <button @click="hapus(index)">x</button></li>
-      </ul>
-
-      <ul v-for="(player, index) in footballPlayers">
-        <li>{{ player.name }} - {{ player.position }} - {{ index }}</li>
-      </ul>
+      <button v-on:click="count--">-</button>
+      <span>{{count}}</span>
+      <button v-on:click="count++">+</button>
     </div>
     <script type="module">
       import { createApp, ref } from 'https://unpkg.com/vue@3/dist/vue.esm-browser.js'
 
       createApp ({
         setup() {
-          const fruits = ref(['apple', 'orange', 'lemon', 'papaya']);
-          const footballPlayers = ref([
-            {name: 'messi', position: 'forward'},
-            {name: 'ronaldo', position: 'goalkeeper'},
-            {name: 'cassidy', position: 'back'},
-            {name: 'sramos', position: 'defender'},
-            {name: 'pamungkas', position: 'tothebone'},
-          ]);
+          const count = ref(0);
           return {
-            fruits,
-            footballPlayers,
+            count,
           }
         },
         methods: {
